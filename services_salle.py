@@ -6,14 +6,7 @@ def creer_salle(code, description, categorie, capacite):
     ajouter_salle(salle)
 
 def afficher_salles():
-    salles = recuperer_salles()
-
-    for salle in salles:
-        print("Code :", salle.code)
-        print("Description :", salle.description)
-        print("Categorie :", salle.categorie)
-        print("Capacite :", salle.capacite)
-        print("-------------------")
+    return recuperer_salles()
 
 def supprimer_une_salle(code):
     supprimer_salle(code)
