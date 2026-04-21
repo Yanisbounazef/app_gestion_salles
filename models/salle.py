@@ -4,3 +4,6 @@ class Salle:
         self.description = description
         self.categorie = categorie
         self.capacite = capacite
+
+    def afficher_infos(self):
+        return f"Code: {self.code}, Description: {self.description}, Categorie: {self.categorie}, Capacite: {self.capacite}"
