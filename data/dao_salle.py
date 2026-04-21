@@ -2,14 +2,20 @@ import mysql.connector
 import json
 
 def connecter_db():
-    with open("data/config.json") as f:
+    print("Ouverture config")
+
+    with open("data/config.json", "r", encoding="utf-8") as f:
         config = json.load(f)
+
+    print("Config lue :", config)
 
     connexion = mysql.connector.connect(
         host=config["host"],
         user=config["user"],
         password=config["password"],
-        database=config["database"]
+        database=config["database"],
+        use_pure=True
     )
 
+    print("Connexion créée")
     return connexion
