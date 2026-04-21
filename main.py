@@ -1,5 +1,10 @@
-from models.salle import Salle
-from data.dao_salle import ajouter_salle
+from data.dao_salle import recuperer_salles
 
-salle1 = Salle("B101", "Salle informatique", "Laboratoire", 25)
-ajouter_salle(salle1)
+salles = recuperer_salles()
+
+for salle in salles:
+    print("Code :", salle.code)
+    print("Description :", salle.description)
+    print("Categorie :", salle.categorie)
+    print("Capacite :", salle.capacite)
+    print("-------------------")
