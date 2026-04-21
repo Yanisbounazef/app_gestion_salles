@@ -1,5 +1,6 @@
 import mysql.connector
 import json
+from models.salle import Salle
 
 def connecter_db():
     print("Ouverture config")
