@@ -70,3 +70,21 @@ def supprimer_salle(code):
 
     curseur.close()
     connexion.close()
+
+def modifier_salle(code, description, categorie, capacite):
+    connexion = connecter_db()
+    curseur = connexion.cursor()
+
+    requete = """
+    UPDATE salle
+    SET description = %s, categorie = %s, capacite = %s
+    WHERE code = %s
+    """
+
+    curseur.execute(requete, (description, categorie, capacite, code))
+    connexion.commit()
+
+    print("Salle modifiée avec succès")
+
+    curseur.close()
+    connexion.close()
