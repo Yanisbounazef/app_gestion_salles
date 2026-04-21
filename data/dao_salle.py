@@ -38,3 +38,22 @@ def ajouter_salle(salle):
 
     curseur.close()
     connexion.close()
+
+def recuperer_salles():
+    connexion = connecter_db()
+    curseur = connexion.cursor()
+
+    requete = "SELECT code, description, categorie, capacite FROM salle"
+    curseur.execute(requete)
+
+    resultats = curseur.fetchall()
+    liste_salles = []
+
+    for ligne in resultats:
+        salle = Salle(ligne[0], ligne[1], ligne[2], ligne[3])
+        liste_salles.append(salle)
+
+    curseur.close()
+    connexion.close()
+
+    return liste_salles
