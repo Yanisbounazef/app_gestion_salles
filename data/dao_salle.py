@@ -57,3 +57,16 @@ def recuperer_salles():
     connexion.close()
 
     return liste_salles
+
+def supprimer_salle(code):
+    connexion = connecter_db()
+    curseur = connexion.cursor()
+
+    requete = "DELETE FROM salle WHERE code = %s"
+    curseur.execute(requete, (code,))
+    connexion.commit()
+
+    print("Salle supprimée avec succès")
+
+    curseur.close()
+    connexion.close()
