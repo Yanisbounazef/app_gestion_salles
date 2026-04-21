@@ -15,8 +15,15 @@ def menu():
             code = input("Code : ")
             description = input("Description : ")
             categorie = input("Categorie : ")
-            capacite = int(input("Capacite : "))
+
+            try:
+                capacite = int(input("Capacite : "))
+            except:
+                print("Erreur : entre un nombre pour la capacite")
+                continue
+
             creer_salle(code, description, categorie, capacite)
+            print("Salle ajoutée avec succès")
 
         elif choix == "2":
             afficher_salles()
@@ -25,12 +32,20 @@ def menu():
             code = input("Code a modifier : ")
             description = input("Nouvelle description : ")
             categorie = input("Nouvelle categorie : ")
-            capacite = int(input("Nouvelle capacite : "))
+
+            try:
+                capacite = int(input("Nouvelle capacite : "))
+            except:
+                print("Erreur : entre un nombre pour la capacite")
+                continue
+
             modifier_une_salle(code, description, categorie, capacite)
+            print("Salle modifiée avec succès")
 
         elif choix == "4":
             code = input("Code a supprimer : ")
             supprimer_une_salle(code)
+            print("Salle supprimée avec succès")
 
         elif choix == "5":
             print("Fin du programme")
