@@ -20,3 +20,21 @@ def connecter_db():
 
     print("Connexion créée")
     return connexion
+def ajouter_salle(salle):
+    connexion = connecter_db()
+    curseur = connexion.cursor()
+
+    requete = """
+    INSERT INTO salle (code, description, categorie, capacite)
+    VALUES (%s, %s, %s, %s)
+    """
+
+    valeurs = (salle.code, salle.description, salle.categorie, salle.capacite)
+
+    curseur.execute(requete, valeurs)
+    connexion.commit()
+
+    print("Salle ajoutée avec succès")
+
+    curseur.close()
+    connexion.close()
